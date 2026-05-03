@@ -209,7 +209,6 @@ function App() {
                 {worldFlow.map((step, index) => (
                   <SwapCard
                     key={step.title}
-                    eyebrow={`Fluxo 0${index + 1}`}
                     className="p-6"
                     contentClassName="pt-3"
                   >
