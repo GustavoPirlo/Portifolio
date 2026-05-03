@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SwapCard } from "./components/swap-card";
+import { Card } from "./components/card";
 
 const worldFlow = [
   {
@@ -148,33 +148,33 @@ function App() {
 
         <main className="flex flex-1 flex-col gap-8">
           <section id="intro" className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <SwapCard
+            <Card
               eyebrow="Introdução"
               className="p-6 sm:p-8"
               contentClassName="pt-6"
             >
-              <h2 className="book-title text-5xl leading-none sm:text-6xl">
+              <h2 className="content-title text-5xl leading-none sm:text-6xl">
                 Sobre
               </h2>
-              <p className="book-copy mt-6 max-w-3xl text-lg leading-8">
+              <p className="body-text mt-6 max-w-3xl text-lg leading-8">
                 Meu nome é Gustavo. Comecei a estudar programação e estou
                 desenvolvendo o Swap como uma forma de praticar, aprender e me
                 divertir ao mesmo tempo.
               </p>
-              <p className="book-copy mt-4 max-w-3xl text-lg leading-8">
+              <p className="body-text mt-4 max-w-3xl text-lg leading-8">
                 O jogo usa sprites de personagens já conhecidos, mas toda a
                 mecânicas e layout está sendo criada por mim, com inspirações em
                 outros jogos.
               </p>
-            </SwapCard>
+            </Card>
 
-            <SwapCard
+            <Card
               eyebrow="Contexto do projeto"
               className="p-6"
               contentClassName="pt-6"
             >
               <div className="flex items-center justify-between gap-3">
-                <span className="book-pill-success">estudo em andamento</span>
+                <span className="status-pill">estudo em andamento</span>
               </div>
               <div className="mt-6 space-y-4">
                 {[
@@ -186,15 +186,15 @@ function App() {
                     className="flex items-start gap-3 border-b border-(--border-primary)/80 pb-4 last:border-none last:pb-0"
                   >
                     <span className="mt-1.5 h-2.5 w-2.5 rounded-full bg-(--gold-500)" />
-                    <p className="book-copy text-base leading-7">{item}</p>
+                    <p className="body-text text-base leading-7">{item}</p>
                   </div>
                 ))}
               </div>
-            </SwapCard>
+            </Card>
           </section>
 
           <section id="mechanics" className="grid gap-8">
-            <SwapCard
+            <Card
               eyebrow="Mecânicas"
               className="p-6 sm:p-8"
               contentClassName="card-stack pt-5"
@@ -206,31 +206,31 @@ function App() {
                 </h3>
               </div>
               <div className="grid gap-6 lg:grid-cols-2">
-                {worldFlow.map((step, index) => (
-                  <SwapCard
+                {worldFlow.map((step) => (
+                  <Card
                     key={step.title}
                     className="p-6"
                     contentClassName="pt-3"
                   >
-                    <h4 className="book-title mt-3 text-3xl">{step.title}</h4>
-                    <p className="book-copy mt-4 text-base leading-7">
+                    <h4 className="content-title mt-3 text-3xl">{step.title}</h4>
+                    <p className="body-text mt-4 text-base leading-7">
                       {step.body}
                     </p>
-                  </SwapCard>
+                  </Card>
                 ))}
               </div>
-            </SwapCard>
+            </Card>
           </section>
 
           <section className="grid gap-5">
             {mechanics.map((item) => (
-              <SwapCard
+              <Card
                 key={item.title}
                 eyebrow={item.label}
                 className="p-5"
                 contentClassName="grid gap-5 pt-4 lg:grid-cols-[0.9fr_1.1fr]"
               >
-                <div className="screenshot-frame screenshot-card-frame">
+                <div className="media-frame media-frame-landscape">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -238,13 +238,13 @@ function App() {
                   />
                 </div>
                 <div className="card-stack">
-                  <h4 className="book-title text-3xl">{item.title}</h4>
-                  <p className="book-copy text-base leading-7">
+                  <h4 className="content-title text-3xl">{item.title}</h4>
+                  <p className="body-text text-base leading-7">
                     {item.summary}
                   </p>
                   {item.label === "Combate" ? (
                     <div className="rounded-[14px] border border-(--border-primary) bg-[#fff9ef] p-3">
-                      <p className="book-copy text-sm leading-7">
+                      <p className="body-text text-sm leading-7">
                         A mecânica central do jogo é o <strong>SWAP</strong>: a
                         troca de personagens aplica um buff em quem entra, e
                         essa ideia acabou definindo o próprio nome do projeto.
@@ -253,14 +253,14 @@ function App() {
                   ) : null}
                   {item.label === "Mundo" ? (
                     <div className="rounded-[14px] border border-(--border-primary) bg-[#fff9ef] p-3">
-                      <p className="book-copy text-sm leading-7">
+                      <p className="body-text text-sm leading-7">
                         Nas áreas de combate atuais, o jogador enfrenta entre
                         <strong> 3 e 6 inimigos</strong>, dentro do intervalo já
                         implementado no projeto.
                       </p>
                     </div>
                   ) : null}
-                  <div className="feature-list book-copy text-sm leading-7">
+                  <div className="feature-list body-text text-sm leading-7">
                     {item.details.map((detail) => (
                       <p key={detail} className="feature-list-item">
                         {detail}
@@ -268,7 +268,7 @@ function App() {
                     ))}
                   </div>
                 </div>
-              </SwapCard>
+              </Card>
             ))}
           </section>
 
@@ -276,37 +276,37 @@ function App() {
             id="capital"
             className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"
           >
-            <SwapCard eyebrow="Capital" className="p-8" contentClassName="pt-4">
+            <Card eyebrow="Capital" className="p-8" contentClassName="pt-4">
               <h3 className="section-title">
                 A capital foi pensada como o hub principal do jogo.
               </h3>
-              <p className="book-copy mt-5 text-base leading-8">
+              <p className="body-text mt-5 text-base leading-8">
                 Ela concentra o acesso às funcionalidades principais, como
                 forja, Coliseu, casa, torre, navio e outras áreas que ainda não
                 foram implementadas, mas já fazem parte da estrutura do projeto.
               </p>
-              <p className="book-copy mt-4 text-base leading-8">
+              <p className="body-text mt-4 text-base leading-8">
                 Essa decisão ajuda a organizar a progressão, cria um ponto
                 central de retorno para o jogador e facilita a expansão do jogo
                 conforme novos sistemas forem entrando.
               </p>
-            </SwapCard>
+            </Card>
 
             <div className="grid gap-4 sm:grid-cols-2">
               {capitalSystems.map((system) => (
-                <SwapCard
+                <Card
                   key={system.title}
                   eyebrow={system.state}
-                  className="capital-system-card p-5"
-                  contentClassName="capital-system-card-content"
+                  className="detail-card p-5"
+                  contentClassName="detail-card-content"
                 >
-                  <h4 className="book-title capital-system-title text-2xl">
+                  <h4 className="content-title detail-card-title text-2xl">
                     {system.title}
                   </h4>
-                  <p className="book-copy capital-system-copy text-base leading-7">
+                  <p className="body-text detail-card-copy text-base leading-7">
                     {system.body}
                   </p>
-                </SwapCard>
+                </Card>
               ))}
             </div>
           </section>
@@ -315,7 +315,7 @@ function App() {
             id="tech"
             className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"
           >
-            <SwapCard
+            <Card
               eyebrow="Base técnica"
               className="p-8"
               contentClassName="pt-4"
@@ -324,7 +324,7 @@ function App() {
                 O projeto usa uma base moderna para experimentar UI, estado e
                 fluxo.
               </h3>
-              <p className="book-copy mt-5 text-base leading-8">
+              <p className="body-text mt-5 text-base leading-8">
                 Na parte técnica, estou usando uma stack voltada para front-end
                 moderno e iteração rápida. Isso me permite testar layout,
                 navegação, componentes e comportamento de batalha de forma bem
@@ -332,14 +332,14 @@ function App() {
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {techStack.map((item) => (
-                  <span key={item} className="parchment-chip">
+                  <span key={item} className="tag-chip">
                     {item}
                   </span>
                 ))}
               </div>
-            </SwapCard>
+            </Card>
 
-            <SwapCard
+            <Card
               eyebrow="Galeria"
               className="p-5"
               contentClassName="grid gap-4 pt-4 md:grid-cols-2 xl:grid-cols-3"
@@ -351,7 +351,7 @@ function App() {
                     className="gallery-button"
                     onClick={() => setSelectedGalleryItem(item)}
                   >
-                    <div className="screenshot-frame screenshot-card-frame">
+                    <div className="media-frame media-frame-landscape">
                       <img
                         src={item.src}
                         alt={item.title}
@@ -359,10 +359,10 @@ function App() {
                       />
                     </div>
                   </button>
-                  <p className="gallery-label">{item.title}</p>
+                  <p className="media-caption">{item.title}</p>
                 </div>
               ))}
-            </SwapCard>
+            </Card>
           </section>
         </main>
       </div>
@@ -382,7 +382,7 @@ function App() {
               className="gallery-modal-image"
             />
             <div className="gallery-modal-footer">
-              <p className="gallery-modal-title">{selectedGalleryItem.title}</p>
+              <p className="modal-title">{selectedGalleryItem.title}</p>
               <button
                 type="button"
                 className="gallery-close"
