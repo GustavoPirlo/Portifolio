@@ -16,15 +16,21 @@ export function Card({
   children,
   ...props
 }: CardProps) {
+  const hasHeader = Boolean(eyebrow || title);
+
   return (
     <article className={`card ${className}`.trim()} {...props}>
-      {eyebrow || title ? (
+      {hasHeader ? (
         <header className="card-header">
           {eyebrow ? <p className="card-eyebrow">{eyebrow}</p> : null}
           {title ? <h3 className="card-title">{title}</h3> : null}
         </header>
       ) : null}
-      <div className={`card-content ${contentClassName}`.trim()}>{children}</div>
+      <div
+        className={`card-content ${hasHeader ? "card-content-with-header" : ""} ${contentClassName}`.trim()}
+      >
+        {children}
+      </div>
     </article>
   );
 }

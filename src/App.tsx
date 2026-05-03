@@ -153,13 +153,9 @@ function App() {
               className="p-6 sm:p-8"
               contentClassName="pt-6"
             >
-              <h2 className="content-title text-5xl leading-none sm:text-6xl">
-                Sobre
-              </h2>
               <p className="body-text mt-6 max-w-3xl text-lg leading-8">
-                Meu nome é Gustavo. Comecei a estudar programação e estou
-                desenvolvendo o Swap como uma forma de praticar, aprender e me
-                divertir ao mesmo tempo.
+                Meu nome é Gustavo, estou desenvolvendo o Swap como uma forma de
+                estudo e diversão.
               </p>
               <p className="body-text mt-4 max-w-3xl text-lg leading-8">
                 O jogo usa sprites de personagens já conhecidos, mas toda a
@@ -207,12 +203,10 @@ function App() {
               </div>
               <div className="grid gap-6 lg:grid-cols-2">
                 {worldFlow.map((step) => (
-                  <Card
-                    key={step.title}
-                    className="p-6"
-                    contentClassName="pt-3"
-                  >
-                    <h4 className="content-title mt-3 text-3xl">{step.title}</h4>
+                  <Card key={step.title} className="p-6">
+                    <h4 className="content-title mt-3 text-3xl">
+                      {step.title}
+                    </h4>
                     <p className="body-text mt-4 text-base leading-7">
                       {step.body}
                     </p>
