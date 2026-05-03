@@ -4,7 +4,7 @@ import { SwapCard } from "./components/swap-card";
 const worldFlow = [
   {
     title: "Mapa do mundo",
-    body: "No mapa do mundo, o jogador escolhe a área de acesso. Essa área pode levar para uma cidade com ponto de hub, quests e sistemas, ou para uma rota de combate com encontros.",
+    body: "No mapa do mundo, o jogador escolhe a área de acesso. Essa área pode levar para uma cidade com ponto de hub, quests ou diretamente pro combate.",
   },
   {
     title: "Progresso por desbloqueio",
@@ -12,11 +12,11 @@ const worldFlow = [
   },
   {
     title: "Entrada de batalha",
-    body: "Nas áreas de combate, o jogador monta a entrada do confronto e enfrenta entre 3 e 6 inimigos, dentro do intervalo que está implementado hoje no projeto.",
+    body: "Nas áreas de combate, o jogador escolhe entre 3 a 6 inimigos pra enfrentar, com uma chance de aparecer algum inimigo secreto.",
   },
   {
     title: "Capital como hub",
-    body: "A capital funciona como o centro de navegação do jogo, conectando o jogador aos sistemas principais e servindo como base para a expansão de novas funcionalidades.",
+    body: "A capital funciona como o centro de navegação do jogo, servindo como um ponnto de acesso a todas as funcionalidaddes.",
   },
 ];
 
@@ -179,8 +179,6 @@ function App() {
               <div className="mt-6 space-y-4">
                 {[
                   "Estudo prático de arquitetura front-end e game UI.",
-                  "Projeto autoral com foco em mecânicas e fluxo de jogo.",
-                  "Expansão iterativa, com sistemas sendo validados aos poucos.",
                   "Mistura de exploração, combate, progressão e gerenciamento.",
                 ].map((item) => (
                   <div
@@ -215,9 +213,7 @@ function App() {
                     className="p-6"
                     contentClassName="pt-3"
                   >
-                    <h4 className="book-title mt-3 text-3xl">
-                      {step.title}
-                    </h4>
+                    <h4 className="book-title mt-3 text-3xl">{step.title}</h4>
                     <p className="book-copy mt-4 text-base leading-7">
                       {step.body}
                     </p>
@@ -243,9 +239,7 @@ function App() {
                   />
                 </div>
                 <div className="card-stack">
-                  <h4 className="book-title text-3xl">
-                    {item.title}
-                  </h4>
+                  <h4 className="book-title text-3xl">{item.title}</h4>
                   <p className="book-copy text-base leading-7">
                     {item.summary}
                   </p>
